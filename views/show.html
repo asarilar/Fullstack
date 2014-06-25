@@ -3,7 +3,9 @@
 {% block content %}
   <h1>{{doc.title}}</h1><br>
   <p>{{doc.body|marked}}</p><br>
-    <button type="submit" class="btn btn-default">Edit</button>
+
+  <a href="/wiki/{{doc.url_name}}/edit" class="btn btn-default">Edit</a>
+
   <form method="post" action="/wiki/{{doc.url_name}}/delete" role="form">
     <input type="submit" class="btn btn-default" value="Delete"></input>
   </form>

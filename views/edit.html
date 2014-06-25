@@ -1,0 +1,17 @@
+<!-- edit.html -->
+{% extends "layout.html" %}
+
+{% block title %}WikiStack - Edit a Page{% endblock %}
+
+{% block content %}
+  <h2>EDIT A PAGE</h2>
+  <h3>{{doc.title}}</h3>
+  <br><br>
+  <form method="post" action="/wiki/{{doc.url_name}}/edit/submit" role="form">
+      <div class="form-group">
+        <label for="pageContent">PAGE CONTENT</label>
+        <textarea name="body" pageContent="text" class="form-control" id="exampleInputPassword1" rows="20" placeholder="Content">{{doc.body}}</textarea>
+      </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+{% endblock %}

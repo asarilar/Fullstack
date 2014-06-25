@@ -12,13 +12,13 @@
        <li><a href=''>Code I've written</a></li>
      </ul>
      {% if docs.length > 0 %}
-  <ul>
-    {% for doc in docs %}
-      <li><a href='/wiki/{{doc.url_name}}'>{{doc|page_link}}</a></li>
-    {% endfor %}
-  </ul>
-{% else %}
-  There are no pages. Why don't you <a href='/add'>add one</a>?
+        <ul>
+          {% for doc in docs %}
+            <li><a href='/wiki/{{doc.url_name}}'>{{doc|page_link}}</a></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+    There are no pages. Why don't you <a href='/add'>add one</a>?
 {% endif %}
    </div>
 {% endblock %}

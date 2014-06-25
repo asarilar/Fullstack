@@ -15,12 +15,10 @@ module.exports = function(swig){
   swig.setFilter('page_link', page_link);
 
 
-var marked = function(body){
-  var marked = require('marked');
-  return marked(body);
+  var marked = function(body){
+    var marked = require('marked');
+    return marked(body);
+  };
+  marked.safe = true;
+  swig.setFilter('marked', marked);
 };
-marked.safe = true;
-swig.setFilter('marked', marked);
-};
-
-

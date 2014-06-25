@@ -49,8 +49,22 @@ router.get('/wiki/:url_name', function(req, res) {
 
 router.post('/wiki/:url_name/delete', function(req, res){
   var url_name = req.params.url_name;
-  models.Page.findOneAndRemove({url_name:url_name}, function(err, docs){
+  models.Page.findOneAndRemove({url_name: url_name}, function(err, docs){
     res.redirect('/');
+  });
+});
+
+router.get('/wiki/:url_name/edit', function(req, res){
+  var url_name = req.params.url_name;
+  models.Page.findOne({url_name: url_name}, function(err, doc){
+    res.render('edit', { doc: doc });
+  });
+});
+
+router.post('/wiki/:url_name/edit/submit', function(req, res){
+  var url_name = req.params.url_name;
+  models.Page.findOneAndUpdate({url_name: url_name}, {body: req.body.body}, function(err, docs){
+    res.redirect('../');
   });
 });
 
